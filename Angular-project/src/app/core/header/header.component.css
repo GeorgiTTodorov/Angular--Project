@@ -1,0 +1,81 @@
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "logo buttons";
+    
+}
+
+ul {
+    display: flex;
+    justify-content: right;
+    gap: 20px;
+    grid-area: buttons;
+    margin-right: 10px;
+}
+
+ul a:hover {
+    cursor: pointer;
+}
+
+.title h2{
+    text-align: left;
+}
+
+.title h2:hover {
+    color: rgba(167, 14, 201, 0.879);
+    transition: 0.5s ease;
+}
+
+.navigation a {
+    background-color: #000;
+    border: 1px solid black;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.3rem;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    outline: 1px solid white;
+    
+}
+
+.title {
+    background-color: #000;
+    border: 1px solid black;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.3rem;
+    padding: 5px 5px 5px 5px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    background-color: rgb(203, 12, 206);
+    transition: 0.3s ease-in;
+    
+}
+
+/* @media only screen and (min-device-width: 222px) {
+    
+   header ul {
+        display: block;
+        gap: 1px;
+        margin: 0;
+        padding: 0;
+        outline: none;
+    }
+} */
+
+/* @media (max-width: 400px) {
+    
+    header ul {
+         display: block;
+         gap: 1px;
+         margin: 0;
+         padding: 0;
+         outline: none;
+     }
+ } */
