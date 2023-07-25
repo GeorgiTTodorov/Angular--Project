@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavComponent } from './nav/nav.component';
 import { AsideComponent } from './aside/aside.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { CoreModule } from './core/core.module';
@@ -14,12 +13,11 @@ import { RegisterComponent } from './user/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
     MainComponent,
     AsideComponent,
     PrivacyPolicyComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

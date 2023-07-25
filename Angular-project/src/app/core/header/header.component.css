@@ -29,7 +29,7 @@ ul a:hover {
 
 .navigation a {
     background-color: #000;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     color: white;
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.3rem;
@@ -43,7 +43,7 @@ ul a:hover {
 
 .title {
     background-color: #000;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     color: white;
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.3rem;
@@ -58,9 +58,12 @@ ul li a:hover {
     
 }
 
-@media only screen and (max-width: 514px) {
+@media only screen and (max-width: 590px) {
     
    header ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
         gap: 0;
         margin: 0;
         padding-left: 0;

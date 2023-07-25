@@ -1,0 +1,108 @@
+:host {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 75px 75px 1fr;   
+}
+
+
+.grid-item-one {
+    grid-column: span 2;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 1, 0.4);
+    padding: 5px 15px 10px 10px;
+    border-radius: 20px;
+}
+
+.grid-item-two {
+    grid-column: span 2;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 0 5px 10px black;
+}
+
+.grid-item-getting-started {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    grid-row: span 2;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Times New Roman', Times, serif;
+    /* border: 1px solid black; */
+    margin-right: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    color: white;
+    text-shadow: 10px 10px 10px black;
+    box-shadow: 0 0 20px 0 rgba(241, 255, 266, 1);
+    background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcg3.cgsociety.org%2Fuploads%2Fimages%2Fmedium%2Fshahxeb-portal-1-4f5f890f-lu5f.jpg&f=1&nofb=1&ipt=c6f98c419b89fb8a4f31d3c24d81cafc5f2c6319c56705cb20f28fdf652c06fa&ipo=images');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+.grid-item-browse-collection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    grid-row: span 2;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Times New Roman', Times, serif;
+    /* border: 1px solid black; */
+    margin-left: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    color: white;
+    text-shadow: 10px 10px 10px black;
+    box-shadow: 0 0 20px 0 rgba(241, 255, 266, 1);
+    background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F51%2F3b%2Fed%2F513bed6d9da30d51a7d604286f5ceebb.jpg&f=1&nofb=1&ipt=33ef79d36817cbfaed8c456279f9e7fd2e596e54f0768e3e52f9593cf867943c&ipo=images');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.register-redirect {
+    display: inline-block;
+    width: 50%;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    /* border: 1px solid white; */
+    padding: 10px 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+
+.register-redirect:hover {
+    background-color: rgb(6, 146, 57);
+    transition: 0.3s ease-in;
+}
+
+.view-collection {
+    display: inline-block;
+    width: 50%;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    /* border: 1px solid white; */
+    padding: 10px 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+
+.view-collection:hover {
+    background-color: rgb(6, 146, 57);
+    transition: 0.3s ease-in;
+}
