@@ -15,11 +15,11 @@ export class RegisterComponent {
   
 
   form = this.fb.group({
-    username: ['username', [Validators.required, Validators.minLength(4)]],
-    email: ['email', [Validators.required, emailValidator(this.emailDomains)]],
+    username: ['', [Validators.required, Validators.minLength(4)]],
+    email: ['', [Validators.required, emailValidator(this.emailDomains)]],
     passGroup: this.fb.group({
-      password: ['password', [Validators.required, Validators.minLength(4), Validators.maxLength(11)]],
-      repeatPassword: ['repeatPassword', [Validators.required]]
+      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(11)]],
+      repeatPassword: ['', [Validators.required]]
     },
     {
       validators: [matchPasswords('password', 'repeatPassword')],
