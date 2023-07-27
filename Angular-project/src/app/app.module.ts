@@ -9,6 +9,9 @@ import { CoreModule } from './core/core.module';
 import { MainComponent } from './main/main/main.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
+import { FormsModule } from '@angular/forms';
+import { MaxCountDirective } from './directives/max-count.directive';
+import { EmailDirective } from './directives/email.directive';
 
 @NgModule({
   declarations: [
@@ -18,11 +21,14 @@ import { RegisterComponent } from './user/register/register.component';
     PrivacyPolicyComponent,
     LoginComponent,
     RegisterComponent,
+    MaxCountDirective,
+    EmailDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

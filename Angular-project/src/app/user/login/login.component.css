@@ -65,6 +65,22 @@
     text-align: center;
   }
 
+  .error-msg {
+    font-size: 1.3rem;
+    color: black;
+    font-family:Arial, Helvetica, sans-serif;
+  }
+
+  input.ng-invalid.ng-touched {
+
+    border: 5px solid red;
+
+  }
+
+  form.ng-invalid button:disabled {
+      background-color: grey;
+  }
+
 @media only screen and (max-width: 472px) {
     .login-form {
       margin-left: 0;
