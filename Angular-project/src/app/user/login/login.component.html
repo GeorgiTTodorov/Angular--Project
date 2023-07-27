@@ -18,9 +18,11 @@
     <input id="password" type="password" name="password" ngModel required #passwordInput="ngModel" [appMaxCount]="11" minlength="4">
 
     <div *ngIf="passwordInput.touched">
+
         <p class="error-msg" *ngIf="passwordInput.errors?.['minlength']">Password is less than 4 characters long</p>
         <p class="error-msg" *ngIf="passwordInput.errors?.['required']">Password is required!</p>
         <p class="error-msg" *ngIf="passwordInput.errors?.['appMaxCount']">Password must be less than 11 characters long</p>
+        
     </div>
     
     <button [disabled]="loginForm.invalid">Login</button>
