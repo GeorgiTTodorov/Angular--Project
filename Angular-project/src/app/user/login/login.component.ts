@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DEFAULT_EMAIL_DOMAINS } from '../email-domain-constants';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +12,8 @@ export class LoginComponent {
 
   emailDomains = DEFAULT_EMAIL_DOMAINS;
 
-  constructor() {
-   
+  constructor(private userService: UserService) {
+    
   }
 
   login(form: NgForm): void {
@@ -21,7 +22,8 @@ export class LoginComponent {
       }
 
       const value: {email: string, password: string} = form.value;
-      console.log(value);
-            
+      
+      const user = this.userService.loginUser(value.email, value.password);
+      
   }
 }

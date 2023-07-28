@@ -5,10 +5,12 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { RegisterComponent } from './user/register/register.component';
 import { LoginComponent } from './user/login/login.component';
 import { CollectionComponent } from './views/collection/collection.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: 'home', component: MainComponent},
+  {path: 'dashboard', component: DashboardComponent},
   {path: 'articles', component: CollectionComponent},
   {path: 'privacy-policy', component: PrivacyPolicyComponent},
   {path: 'login', component: LoginComponent},

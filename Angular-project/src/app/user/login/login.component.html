@@ -24,6 +24,9 @@
         <p class="error-msg" *ngIf="passwordInput.errors?.['appMaxCount']">Password must be less than 11 characters long</p>
         
     </div>
+        <!-- <div *ngIf="!user">
+            <p class="error-msg" >User not found</p>
+        </div> -->
     
     <button [disabled]="loginForm.invalid">Login</button>
 

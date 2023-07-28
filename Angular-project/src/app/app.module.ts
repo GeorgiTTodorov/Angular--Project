@@ -10,6 +10,7 @@ import { MainComponent } from './main/main/main.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { MaxCountDirective } from './directives/max-count.directive';
 import { EmailDirective } from './directives/email.directive';
 
@@ -30,6 +31,7 @@ import { EmailDirective } from './directives/email.directive';
     CoreModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

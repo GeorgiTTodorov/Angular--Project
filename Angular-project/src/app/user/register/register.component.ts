@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { DEFAULT_EMAIL_DOMAINS } from '../email-domain-constants';
 import { emailValidator } from '../app-email-validator';
 import { matchPasswords } from '../match-passwords-validator';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -27,14 +28,20 @@ export class RegisterComponent {
   })
 
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private userService: UserService) {}
 
     register(): void {
       if (this.form.invalid) {
           return;
       }
       
-      console.log(this.form.value);
+      const username = this.form.value.username!;
+      const email = this.form.value.email!;
+      const password = this.form.value.passGroup?.password!;
+      const uniqueId = new Date().getTime().toString() + Math.random().toString(36).substring(2)
+      
+      this.userService.registerUser({username, email, password,  id: uniqueId})
+            
       
     }
 }
