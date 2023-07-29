@@ -21,11 +21,26 @@ registerUser(user: User): any {
 
     const id = user.id;
 
-    this.http.post(this.url + 'users.json', user).subscribe((res) => {
-        localStorage.setItem('user', JSON.stringify(id));
-        this.router.navigate(['/dashboard']);
-        
-    });
+    const userMatch = this.http.get(this.url + 'users.json').subscribe((userData) => {
+        const userEmail = Object.values(userData).find((u) => {
+            return u.email === user.email;
+        })
+
+        return userEmail;
+    })
+
+    if (userMatch) {
+      alert('Email already exists')
+      return;
+
+    } else {
+      this.http.post(this.url + 'users.json', user).subscribe((res) => {
+          localStorage.setItem('user', JSON.stringify(id));
+          this.router.navigate(['/dashboard']);
+          
+      });
+    }
+  
 }
 
 loginUser(email: string, password: string) {

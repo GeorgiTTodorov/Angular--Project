@@ -41,7 +41,6 @@ export class RegisterComponent {
       const uniqueId = new Date().getTime().toString() + Math.random().toString(36).substring(2)
       
       this.userService.registerUser({username, email, password,  id: uniqueId})
-            
-      
+      this.form.reset(); 
     }
 }
