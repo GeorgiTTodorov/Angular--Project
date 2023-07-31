@@ -58,7 +58,7 @@ ul li a:hover {
     
 }
 
-@media only screen and (max-width: 590px) {
+@media only screen and (max-width: 610px) {
     
    header ul {
     display: flex;
