@@ -1,1 +1,12 @@
-<p>dashboard works!</p>
+<h2 class="your-posts"> Your posts </h2>
+
+<div class="articles">
+    
+
+        <a class="user-article"  routerLink="/details/{{a.id}}" *ngFor="let a of articleService.articleData  ">
+            <h3 id="{{a.id}} ">{{a.title}}</h3>
+            <img src="{{a.imageUrl}}" alt="article image">
+        </a>
+
+    
+</div>
