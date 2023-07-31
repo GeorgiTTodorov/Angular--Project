@@ -1,0 +1,20 @@
+<div class="article" *ngFor="let a of article">
+    <h2>{{a.title}}</h2>
+
+    <div class="flex-grp">
+
+    <img src="{{a.imageUrl}}" alt="image">
+
+        <div class="content">
+        <p>{{a.content}}</p>
+        </div> 
+
+    </div>
+
+    <div class="buttons">
+        <button>Edit</button>
+        <button>Delete</button>
+        <button>Back</button>
+    </div>
+
+</div>
