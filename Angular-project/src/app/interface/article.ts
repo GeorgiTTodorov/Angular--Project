@@ -1,5 +1,7 @@
 export interface Article {
     title: string,
-    createdBy: string,
+    imageUrl: string,
     content: string,
+    createdBy: string,
+    id: string,
 }
