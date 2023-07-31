@@ -1,16 +1,25 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Article } from '../interface/article';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class ArticleService{
+
+export class ArticleService implements OnInit{
 
   url = 'https://articles-db-46e7b-default-rtdb.firebaseio.com/';
   articleData: Article[] = []; 
+  article: Article[] = [];
+
+  objId: string = '';
 
   constructor(private http: HttpClient) { }
+
+  ngOnInit(): void {
+    this.article = [];
+  }
 
   fetchArticles(id: string): any {
  
@@ -35,18 +44,23 @@ export class ArticleService{
       });
   }
 
-  fetchArticleById(id: string): any {
-      let article: Article[] = [];
+  fetchArticleById(id: string): void {
+    this.article = [];
+      
       this.http.get(this.url + `articles.json`).subscribe((res) => {
-          const articleData = Object.values(res).find((a) => {
-              return a.id === id;
-          })
-          
-          article.push(articleData)
-          
-      })
 
-      return article
+        if (res) {
+          const articleData = Object.values(res).find((a) => {
+            return a.id === id;
+        })
+        
+        this.article.push(articleData)
+      }
+          
+          
+    })
+
+  
           
   }
 
@@ -54,18 +68,31 @@ export class ArticleService{
 
       
       this.http.get(this.url + 'articles.json').subscribe((articles) => {
-        debugger;
+       
         if (articles) {
           const userArticles = Object.values(articles)
         
           this.articleData = userArticles;
         }
+        
           
       })
   }
 
-  deleteArticle(): void{
+  deleteArticle(id: string): void{
+      
 
+      this.http.get(this.url + 'articles.json').subscribe((res) => {
+          const item = Object.entries(res).find((a) => {
+              return a[1].id === id;
+          }); 
+          
+          this.objId = item?.at(0);
+      });
+      
+      setTimeout(() => {
+        this.http.delete(this.url + `articles/${this.objId}.json`).subscribe();
+      }, 500);
   }
 
   editArticle(): void{

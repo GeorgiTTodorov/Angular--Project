@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Article } from 'src/app/interface/article';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ArticleService } from 'src/app/services/article.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-details',
@@ -10,14 +10,27 @@ import { ArticleService } from 'src/app/services/article.service';
 })
 export class DetailsComponent implements OnInit{
 
-    article: Article[] = [];
 
-    constructor (private articleService: ArticleService, private activatedRoute: ActivatedRoute) {}
+    constructor (public articleService: ArticleService, private activatedRoute: ActivatedRoute, private router: Router, private userService: UserService) {}
+
+    get isLoggedIn(): boolean {
+      return this.userService.isLoggedIn
+  }
 
     ngOnInit(): void {
         const id = this.activatedRoute.snapshot.params['id']
-        const articleData = this.articleService.fetchArticleById(id)
-        this.article = articleData;
+        this.articleService.fetchArticleById(id) 
+         
+    }
+
+    back(): void {
+      window.history.back()
+    }
+
+    deletePost(id: string): void {
+     
+      this.articleService.deleteArticle(id)
+      this.router.navigate(['/dashboard'])
         
     }
 }

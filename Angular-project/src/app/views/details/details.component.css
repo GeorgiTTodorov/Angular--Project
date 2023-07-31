@@ -1,19 +1,18 @@
 :host {
     border:5px solid rgba(2, 2, 18, 0);
     background-color: rgba(2, 2, 18, 0.2);
-    /* display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 100px 1fr; */
 }
 
 h2 {
     font-family:Arial, Helvetica, sans-serif;
     font-size: 2rem;
+    margin: 0;
 }
 
 .article {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
 }
 
@@ -28,7 +27,8 @@ img {
 
 .flex-grp {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     gap: 100px;
 }
 
@@ -37,19 +37,35 @@ img {
     height: auto;
 }
 
-.buttons {
-    display: flex;
-    margin-top: 50px;
-    justify-content: space-between;   
+.text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    word-spacing: 1px;
+    margin: 0;
 }
 
-button {
+.links {
+    margin-bottom: 10px;
+}
+
+a {
     padding: 10px 25px 10px 25px;
     font-family:'Arial Narrow Bold', sans-serif;
     font-size: 1rem;
     color: white;
     background-color: rgba(10, 0, 9, 0.7);
     border-radius: 10px;
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+    background-color: blueviolet;
+}
+
+.links {
+    display: flex;
+    gap: 20px;
 }
 
 @media only screen and (max-width: 610px) {

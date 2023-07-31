@@ -1,20 +1,21 @@
-<div class="article" *ngFor="let a of article">
+<div class="article" *ngFor="let a of articleService.article">
+
     <h2>{{a.title}}</h2>
 
+    <div class="links">
+        <a (click)="back()">Back</a>
+        <a *ngIf="isLoggedIn"  (click)="deletePost(a.id)">Delete</a>
+    </div>
+    
+    
     <div class="flex-grp">
 
     <img src="{{a.imageUrl}}" alt="image">
 
         <div class="content">
-        <p>{{a.content}}</p>
+        <p class="text">{{a.content}}</p>
         </div> 
 
-    </div>
-
-    <div class="buttons">
-        <button>Edit</button>
-        <button>Delete</button>
-        <button>Back</button>
     </div>
 
 </div>
