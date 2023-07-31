@@ -1,1 +1,12 @@
-<p>collection works!</p>
+<h2 class="posts"> All Articles</h2>
+
+<div class="all-posts">
+    
+
+        <a class="article" routerLink="/details/{{article.id}}" *ngFor="let article of articleService.articleData">
+            <h3 id="{{article.id}} ">{{article.title}}</h3>
+            <img src="{{article.imageUrl}}" alt="article image">
+        </a>
+        
+    
+</div>
