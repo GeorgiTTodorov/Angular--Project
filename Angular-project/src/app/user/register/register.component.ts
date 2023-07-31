@@ -10,6 +10,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent {
 
   emailDomains = DEFAULT_EMAIL_DOMAINS;

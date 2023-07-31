@@ -23,7 +23,8 @@ export class LoginComponent {
 
       const value: {email: string, password: string} = form.value;
       
-      const user = this.userService.loginUser(value.email, value.password);
+      this.userService.loginUser(value.email, value.password);
+      form.reset();
       
   }
 }

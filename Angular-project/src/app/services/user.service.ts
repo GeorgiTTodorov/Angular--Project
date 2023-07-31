@@ -20,26 +20,34 @@ constructor(private http: HttpClient, private router: Router) { }
 registerUser(user: User): any {
 
     const id = user.id;
+    const username = user.username;
+    let userMatch;
+    let userEmail: string;
 
-    const userMatch = this.http.get(this.url + 'users.json').subscribe((userData) => {
-        const userEmail = Object.values(userData).find((u) => {
+    this.http.get(this.url + 'users.json').subscribe((userData) => {
+        
+      if (userData) {
+          userEmail = Object.values(userData).find((u) => {
             return u.email === user.email;
-        })
+          })
 
-        return userEmail;
+        }
+        userMatch = userEmail
+
+        if (userMatch) {
+          alert('Email already exists')
+          return;
+    
+        } else {
+          this.http.post(this.url + 'users.json', user).subscribe((res) => {
+              localStorage.setItem('user', JSON.stringify({name: username, id:id}));
+              this.router.navigate(['/dashboard']);
+              
+          });
+        }
+         
     })
 
-    if (userMatch) {
-      alert('Email already exists')
-      return;
-
-    } else {
-      this.http.post(this.url + 'users.json', user).subscribe((res) => {
-          localStorage.setItem('user', JSON.stringify(id));
-          this.router.navigate(['/dashboard']);
-          
-      });
-    }
   
 }
 
@@ -55,14 +63,14 @@ loginUser(email: string, password: string) {
           const existingUser = localStorage.getItem('user');
           
           if (!existingUser) {
-            localStorage.setItem('user', JSON.stringify(user.id))
+            localStorage.setItem('user', JSON.stringify({name: user.username, id: user.id}))
             this.router.navigate(['/dashboard']);
           } 
           
       } else {
         
         alert('user not found');
-        return user;
+        return;
     }
       
     })
