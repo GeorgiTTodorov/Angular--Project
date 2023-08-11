@@ -1,10 +1,10 @@
-<div class="article" *ngFor="let a of articleService.article">
+<div class="article" *ngFor="let a of articleService.article" id="{{a.createdBy}}">
 
     <h2>{{a.title}}</h2>
 
     <div class="links">
         <a (click)="back()">Back</a>
-        <a *ngIf="isLoggedIn"  (click)="deletePost(a.id)">Delete</a>
+        <a *ngIf="isOwner"  (click)="deletePost(a.id)">Delete</a>
     </div>
     
     

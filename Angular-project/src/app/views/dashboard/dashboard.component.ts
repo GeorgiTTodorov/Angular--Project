@@ -14,12 +14,12 @@ export class DashboardComponent implements OnInit{
 
 
     ngOnInit(): void {
-      
       setTimeout(() => {
         const userId: any = localStorage.getItem('user')
         const {name, id} = JSON.parse(userId);
         
         this.articleService.fetchArticles(id) 
+       
       }, 200)
              
     }

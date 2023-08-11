@@ -13,9 +13,9 @@ export class CollectionComponent implements OnInit {
     }
   
     ngOnInit(): void {
-        setTimeout(() => {
+       
 
           this.articleService.fetchAllArticles();
-        }, 500)
+        
     }
 }

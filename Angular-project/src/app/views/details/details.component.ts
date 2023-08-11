@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArticleService } from 'src/app/services/article.service';
 import { UserService } from 'src/app/services/user.service';
@@ -9,12 +9,19 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit{
+    user: string | null = ''
 
+    constructor (public articleService: ArticleService, private activatedRoute: ActivatedRoute, private router: Router, private userService: UserService, private elRef: ElementRef) {}
 
-    constructor (public articleService: ArticleService, private activatedRoute: ActivatedRoute, private router: Router, private userService: UserService) {}
+    get isOwner(): boolean {
+      this.user = localStorage.getItem('user');
 
-    get isLoggedIn(): boolean {
-      return this.userService.isLoggedIn
+      if (this.user) {
+          const {name, id} = JSON.parse(this.user);
+          return this.elRef.nativeElement.querySelector('.article').id === id;
+      }
+      
+      return false;
   }
 
     ngOnInit(): void {
@@ -30,7 +37,10 @@ export class DetailsComponent implements OnInit{
     deletePost(id: string): void {
      
       this.articleService.deleteArticle(id)
-      this.router.navigate(['/dashboard'])
+      
+      setTimeout(() => {
+        this.router.navigate(['/dashboard'])
+      }, 600)
         
     }
 }

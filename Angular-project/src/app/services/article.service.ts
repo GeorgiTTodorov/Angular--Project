@@ -21,7 +21,7 @@ export class ArticleService implements OnInit{
     this.article = [];
   }
 
-  fetchArticles(id: string): any {
+  fetchArticles(id: string): any {   // for user dashboard
  
     this.http.get(this.url + 'articles.json').subscribe((data) => {
 
@@ -59,12 +59,10 @@ export class ArticleService implements OnInit{
           
           
     })
-
-  
-          
+        
   }
 
-  fetchAllArticles(): void{
+  fetchAllArticles(): void{  // for browse collection 
 
       
       this.http.get(this.url + 'articles.json').subscribe((articles) => {
@@ -95,7 +93,7 @@ export class ArticleService implements OnInit{
       }, 500);
   }
 
-  editArticle(): void{
+  // editArticle(): void{
 
-  }
+  // }
 }
