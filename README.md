@@ -1,4 +1,4 @@
-# Angular--Project
+# Articles--Project (created with Angular)
 SPA application written in angular 
 
 Website for publishing articles
